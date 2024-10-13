@@ -1,0 +1,13 @@
+/* AboutPage.css */
+.about-page {
+    background-color: #f8f9fa; /* Light background */
+  }
+  
+  .card {
+    transition: transform 0.2s; /* Add smooth transition */
+  }
+  
+  .card:hover {
+    transform: scale(1.05); /* Scale effect on hover */
+  }
+  
