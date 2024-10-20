@@ -7,7 +7,8 @@ import DashboardLayout from './DashboardLayout';
 import './index.css';
 
 function DefaultLayout() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const isLoggedIn =  localStorage.getItem('isLoggedIn');
+    const [isAuthenticated, setIsAuthenticated] = useState(isLoggedIn);
 
     return (
         <div className="default-layout">

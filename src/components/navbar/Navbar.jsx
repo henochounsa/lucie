@@ -2,11 +2,21 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '../../logo.svg';
+import logo from '../../assets/img/logo.svg';
 import { FaUser, FaShoppingCart, FaHeart } from 'react-icons/fa';
 
 
 function NavbarComponent() {
+
+  const isLoggedIn =  localStorage.getItem('isLoggedIn');
+  const handleLogout = () => {
+    // Supprimer l'état de connexion dans le local storage
+    localStorage.removeItem('isLoggedIn');
+    alert("Déconnexion réussie !");
+    // Redirige ou met à jour l'état de l'application ici si nécessaire
+  };
+
+  console.log('isLoggedIn', isLoggedIn)
   return (
     <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary">
       <Container>
@@ -15,8 +25,6 @@ function NavbarComponent() {
             <Navbar.Brand href="/">
               <img
                 src={logo}
-                width="60"
-                height="60"
                 className="d-inline-block align-top"
                 alt=""
               />
@@ -40,10 +48,10 @@ function NavbarComponent() {
               title={<FaUser size={24} color='gray' />} 
               id="icon-nav-dropdown"
             >
-              <NavDropdown.Item href="#action/3.1">S'inscrire</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Se connecter</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Déconnexion</NavDropdown.Item>
+              {isLoggedIn == null && <NavDropdown.Item href="/register">S'inscrire</NavDropdown.Item>}
+              {isLoggedIn == null &&     <NavDropdown.Item href="/login">Se connecter</NavDropdown.Item>}
+              {isLoggedIn == null && <NavDropdown.Divider />}
+              {isLoggedIn && <NavDropdown.Item onClick={handleLogout}>Déconnexion</NavDropdown.Item> }
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

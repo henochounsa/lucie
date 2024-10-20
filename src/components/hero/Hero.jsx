@@ -1,18 +1,44 @@
-// src/components/HeroSection.js
 import React from 'react';
-import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import heroImage from '../../assets/img/bg.png' 
 
 const HeroSection = () => {
   return (
-    <Container fluid className="bg-primary text-white py-5">
-      <Row className="text-center">
-        <Col>
-          <h1>Bienvenu sur Lucie!</h1>
-          <p>Découvrez des produits étonnants à des prix imbattables.</p>
-          <Button variant="light">Votre panier</Button>
-        </Col>
-      </Row>
-    </Container>
+    <div
+      style={{
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        height: '600px', // Ajustez la hauteur selon vos besoins
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+      }}
+    >
+      {/* Couche d'ombre */}
+      <div
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0, 0, 0, 0.5)', // Ombre noire semi-transparente
+        }}
+      ></div>
+
+      <div style={{ position: 'relative', textAlign: 'center', color: '#fff' }}>
+        <h1 style={{ fontWeight: 'bold', fontSize: '2.5rem', marginBottom: '20px' }}>
+          L'Art de la Joaillerie,
+          <br />
+          La Passion de l'Excellence
+        </h1>
+        <Button variant="light" size="lg" style={{ padding: '10px 20px' }}>
+          VOIR NOTRE SÉLECTION
+        </Button>
+      </div>
+    </div>
   );
 };
 

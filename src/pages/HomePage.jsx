@@ -1,7 +1,7 @@
 // src/pages/HomePage.js
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-import {ProductCard,Hero} from '../components';
+import { ProductCard, Hero, CustomerReviews, ImageTextGrid, TwoImageRow, ImageSquareSlider} from '../components';
 import products from '../data/products';
 
 
@@ -18,19 +18,11 @@ const HomePage = () => {
 
   return (
     <Container fluid className="my-5">
-      <Hero/>
-      <h2 className="text-center my-4">Nos  Produits</h2>
-      <Row className="justify-content-center">
-        {products.map((product) => (
-          <Col key={product.id} md={3}>
-            <ProductCard
-              product={product}
-              onAddToCart={handleAddToCart}
-              onAddToFavorites={handleAddToFavorites}
-            />
-          </Col>
-        ))}
-      </Row>
+      <Hero />
+      <ImageSquareSlider/>
+      <TwoImageRow/>
+      <ImageTextGrid />
+      <CustomerReviews />
     </Container>
   );
 };
